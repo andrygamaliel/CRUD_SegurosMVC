@@ -1,0 +1,44 @@
+﻿@model CRUD_SegurosMVC.Models.Policy
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1>Create</h1>
+
+<h4>Policy</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create" class="needs-validation" novalidate>
+            <div class="mb-3">
+                <label for="PolicyNumber" class="form-label">Número de Póliza</label>
+                <input asp-for="PolicyNumber" class="form-control" id="PolicyNumber" />
+                <span asp-validation-for="PolicyNumber" class="text-danger"></span>
+            </div>
+
+            <div class="mb-3">
+                <label for="CustomerName" class="form-label">Cliente</label>
+                <input asp-for="CustomerName" class="form-control" id="CustomerName" />
+                <span asp-validation-for="CustomerName" class="text-danger"></span>
+            </div>
+
+            <div class="mb-3">
+                <label for="PremiumAmount" class="form-label">Monto Asegurado</label>
+                <input asp-for="PremiumAmount" class="form-control" id="PremiumAmount" />
+                <span asp-validation-for="PremiumAmount" class="text-danger"></span>
+            </div>
+
+            <button type="submit" class="btn btn-success">Guardar</button>
+            <a asp-action="Index" class="btn btn-secondary">Cancelar</a>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
