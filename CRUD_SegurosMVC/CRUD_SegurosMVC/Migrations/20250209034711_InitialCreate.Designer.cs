@@ -12,7 +12,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace CRUD_SegurosMVC.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20250209025339_InitialCreate")]
+    [Migration("20250209034711_InitialCreate")]
     partial class InitialCreate
     {
         /// <inheritdoc />
@@ -25,7 +25,7 @@ namespace CRUD_SegurosMVC.Migrations
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
 
-            modelBuilder.Entity("CRUD_SegurosMVC.Models.Poliza", b =>
+            modelBuilder.Entity("CRUD_SegurosMVC.Models.Policy", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -33,30 +33,26 @@ namespace CRUD_SegurosMVC.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
-                    b.Property<string>("Cliente")
+                    b.Property<string>("CustomerName")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<DateTime>("FechaFin")
+                    b.Property<DateTime>("EndDate")
                         .HasColumnType("datetime2");
 
-                    b.Property<DateTime>("FechaInicio")
-                        .HasColumnType("datetime2");
+                    b.Property<string>("PolicyNumber")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
 
-                    b.Property<decimal>("MontoAsegurado")
+                    b.Property<decimal>("PremiumAmount")
                         .HasColumnType("decimal(18,2)");
 
-                    b.Property<string>("NumeroPoliza")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("TipoSeguro")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<DateTime>("StartDate")
+                        .HasColumnType("datetime2");
 
                     b.HasKey("Id");
 
-                    b.ToTable("Polizas");
+                    b.ToTable("Policies");
                 });
 #pragma warning restore 612, 618
         }

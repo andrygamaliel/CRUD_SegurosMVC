@@ -8,6 +8,6 @@ namespace CRUD_SegurosMVC.Data
     {
         public AppDbContext(DbContextOptions<AppDbContext> options) : base(options) { }
 
-        public DbSet<Poliza> Polizas { get; set; }
+        public DbSet<Policy> Policies { get; set; }
     }
 }
