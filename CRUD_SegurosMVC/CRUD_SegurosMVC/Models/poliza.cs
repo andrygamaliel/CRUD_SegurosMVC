@@ -1,6 +1,6 @@
 ﻿namespace CRUD_SegurosMVC.Models
 {
-    public class poliza
+    public class Poliza
     {
         public int Id { get; set; }
         public string NumeroPoliza { get; set; }
